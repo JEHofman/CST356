@@ -1,23 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    
-<link rel="stylesheet" type="text/css" href="mystyle.css">
+<template>
+<div>
 
-<img src="https://static-collegedunia.com/public/college_data/images/appImage/25423_PU_New.jpg" 
-alt="SDU" width="500" height="250">
-
->
-
-
-</head>
-<body>
-<h2>School Links</h2>   
-   <p><a href="index.html">Home</a></p>
-   <p><a href="login.html">Login</a></p>
-   <p><a href="persons.html">People</a></p>
-   <p><a href="students.html">Students</a></p>
-<br>      
+<img src="../assets/image.jpg" alt="SDU" width="500" height="250" >
 <h1>Super Duper University</h1>
 
 <h3>Paragraph 1</h3>
@@ -29,7 +13,7 @@ alt="SDU" width="500" height="250">
    risus justo, pretium in cursus a, ullamcorper eu orci. 
    Sed eget molestie tellus. Integer fermentum euismod eros, vel 
    venenatis nisi tristique a. </p>
-   <h3>Paragraph 2</h3>
+<h3>Paragraph 2</h3>
 <p>Ut eget tellus ut est egestas auctor non eget mi. Suspendisse 
    nec tempor purus, at porta diam. Ut mattis maximus diam, at 
    tincidunt elit. Vivamus vitae elit leo. Pellentesque vulputate 
@@ -41,7 +25,7 @@ alt="SDU" width="500" height="250">
    neque. Nulla vitae libero lacus. In ac tempor sapien, vitae 
    commodo ante. Donec pulvinar dui non nisi feugiat rutrum. Nam eu 
    fringilla sapien.</p>
-   <h3>Paragraph 3</h3> 
+<h3>Paragraph 3</h3> 
 <p>Quisque id nisl sapien. Maecenas consectetur sed velit nec 
    commodo. Suspendisse est nulla, vulputate eu est ac, fermentum 
    scelerisque magna. Nam vestibulum lorem ipsum, vel fringilla urna 
@@ -50,6 +34,32 @@ alt="SDU" width="500" height="250">
    turpis id turpis consectetur suscipit at id metus. Donec auctor 
    ipsum ex, nec pretium lectus eleifend at. Phasellus egestas in 
    mauris non dignissim. Cras non hendrerit nisi. </p> 
+</div>
+</template>
 
-</body>
-</html>
+<script>
+export default {
+  name: 'Home',
+  data () {
+    return {
+    }
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style>
+body {
+  background-color: lightseagreen;
+}
+
+h1 {
+  color: yellowgreen;
+  text-align: center;
+}
+
+p {
+  font-family: verdana;
+  font-size: 20px;
+}
+</style>

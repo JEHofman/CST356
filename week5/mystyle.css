@@ -1,0 +1,15 @@
+body {
+  background-color: lightseagreen;
+}
+
+h1 {
+  color: yellowgreen;
+  text-align: center;
+}
+img{
+    float: right
+}
+p {
+  font-family: verdana;
+  font-size: 20px;
+}

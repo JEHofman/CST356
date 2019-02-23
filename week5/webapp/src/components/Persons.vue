@@ -1,87 +1,68 @@
 <template>
-<div>
-
-<h2>People</h2>
-
-<table>
-  <tr>
-    <th>First</th>
-    <th>Middle Init.</th>
-    <th>Last</th>
-  </tr>
-  <tr>
-    <td>Robert</td>
-    <td>E</td>
-    <td>Lee</td>
-  </tr>
-  <tr>
-    <td>Ghengis</td>
-    <td>A</td>
-    <td>Khan</td>
-  </tr>
-  <tr>
-    <td>Sun</td>
-    <td>E</td>
-    <td>Tzu</td>
-  </tr>
-  <tr>
-    <td>Adolf</td>
-    <td>N/A</td>
-    <td>Hitler</td>
-  </tr>
-  <tr>
-    <td>David</td>
-    <td>G</td>
-    <td>Farragut</td>
-  </tr>
-  <tr>
-    <td>Thomas</td>
-    <td>K </td>
-    <td>Jefferson</td>
-  </tr>
-</table>
-</div>
+    <div>
+        <h2 class='section-heading'>Persons</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>First</th>
+                    <th>Middile I</th>
+                    <th>Last</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="person in persons" :key="person.id">
+                    <td>{{ person.first }}</td>
+                    <td>{{ person.middile }}</td>
+                    <td>{{ person.last}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </template>
 
 <script>
-export default {
-  name: 'Home',
-  data () {
-    return {
+    import Vue from 'vue';
+
+    export default {
+        name: 'Persons',
+        
+        data () {
+            return {
+                persons: []
+            }
+        },
+
+        methods: {
+            getPersons: function() {
+                let personsApi = process.env.PERSONS_API;
+
+                Vue.axios.get(personsApi).then(
+                    (response) => {
+                        console.log(response)
+                        this.persons = response.data;
+                    },
+                    (error) => {
+                        console.log(error)
+                    }
+                );  
+            }
+        },
+
+        mounted() {
+            this.getPersons();
+        }
     }
-  }
-}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+<style scoped>
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
+    table {
+        border-collapse: collapse;
+    }
 
-tr:nth-child(even) {
-  background-color: #2d2bcc6b;
-}
+    table, th, td {
+        border: 1px solid black;
+        padding: 10px;
+    }
 
-body {
-  background-color: lightseagreen;
-}
-
-h1 {
-  color: yellowgreen;
-  text-align: center;
-}
-
-p {
-  font-family: verdana;
-  font-size: 20px;
-}
 </style>

@@ -1,65 +1,66 @@
 <template>
-<div>
-
-<h2 class='section-heading'>Students</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Student ID</th>
-      <th>Email Address</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr v-for="student in students" :key="student.id">
-      <td>{{ student.id }}</td>
-      <td>{{ student.email }}</td>
-    </tr>
-  </tbody>
-</table>
- 
-</div>
+    <div>
+        <h2 class='section-heading'>Persons</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>StudentId</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="student in students" :key="student.id">
+                    <td>{{ student.studentId }}</td>
+                    <td>{{ person.email }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </template>
 
 <script>
-export default {
-  name: 'Students',
-    mounted() {
-      this.students = getStudents();
-      },
-    data () {
-      return {
-      students: []
+    import Vue from 'vue';
+
+    export default {
+        name: 'Students',
+        
+        data () {
+            return {
+                students: []
+            }
+        },
+
+        methods: {
+            getPersons: function() {
+                let studentsApi = process.env.STUDENTS_API;
+
+                Vue.axios.get(students.Api).then(
+                    (response) => {
+                        console.log(response)
+                        this.students = response.data;
+                    },
+                    (error) => {
+                        console.log(error)
+                    }
+                );  
+            }
+        },
+
+        mounted() {
+            this.getStudents();
         }
-      }
-    }
-   function getStudents() {
-    return JSON.parse(testStudents).students;
-    }
-    var testStudents = {
-      "students": [
-      {"id": "674801678","email": "Sumguy@SDU.edu"},
-      {"id": "785890182","email": "Sumgirl@SDU.edu"},
-      {"id": "315758789","email": "AnotherGuy@SDU.edu"},
-      {"id": "432678754","email": "ADifferentGuy@SDU.edu"},
-      {"id": "437854870","email": "NewGirl@SDU.edu"},
-      {"id": "789548795","email": "QuestionMark@SDU.edu"}
-      ]
     }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-body {
-  background-color: lightseagreen;
-}
 
-h1 {
-  color: yellowgreen;
-  text-align: center;
-}
-p {
-  font-family: verdana;
-  font-size: 20px;
-}
+    table {
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        padding: 10px;
+    }
+
 </style>

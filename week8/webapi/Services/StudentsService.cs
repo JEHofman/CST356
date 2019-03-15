@@ -20,7 +20,7 @@ public class StudentsService : IStudentsService
             studentDtos.Add(new StudentsDto {
                 StudentId = persons.StudentId,
                 Email = persons.Students.Email,
-                Special = true
+                Special = false
             });
             if (BusinessRules.Special(persons))
             {

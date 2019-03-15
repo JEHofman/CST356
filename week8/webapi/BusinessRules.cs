@@ -5,9 +5,9 @@ namespace PersonsBusinessRules {
     public static class BusinessRules
     {
         public static bool Special(Persons person) =>
-            person.MiddleI.ToLower().StartsWith(specialKey);
+            person.MiddleI.ToUpper().StartsWith(specialKey);
 
 
-        public static string specialKey = "k";
+        public static string specialKey = "K";
     }
 }

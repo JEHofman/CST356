@@ -30,12 +30,19 @@ public class StudentServiceTests
                 new Persons {
                     First = "Angelina",
                     MiddleI = "K",
-                    Last = "Jolie"
+                    Last = "Jolie",
+                    Students = new Students {
+                        Email = "Angelina@teamang.com"
+                    }
+
                 },
                 new Persons {
                     First = "Brad",
                     MiddleI = "K",
-                    Last = "Pitt"
+                    Last = "Pitt",
+                    Students = new Students {
+                        Email = "brad@teambrad.com"
+                    }
                 }
             }
        );
@@ -55,12 +62,20 @@ public class StudentServiceTests
                 new Persons {
                     First = "Mark",
                     MiddleI = "A",
-                    Last = "Whalberg"
+                    Last = "Whalberg",
+                    Students = new Students {
+                        Email = "mark@markymark.com"
+                    }
+
                 },
                 new Persons {
                     First = "Kim",
                     MiddleI = "B",
-                    Last = "Kardashian"
+                    Last = "Kardashian",
+                    Students = new Students {
+                        Email = "kim@nobodycares.com"
+                    }
+
                 }
             }
        );

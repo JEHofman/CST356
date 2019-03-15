@@ -24,24 +24,26 @@ public class StudentServiceTests
     [Test]
     public void ShouldReturnSpecialStudent()
     {
+        var expectedPersonName = BusinessRules.specialKey;
+
         // Arrange
         A.CallTo(() => _personRepository.GetAllPersons()).Returns(
             new List<Persons> {
                 new Persons {
                     First = "Angelina",
-                    MiddleI = "K",
+                    MiddleI = expectedPersonName,
                     Last = "Jolie",
                     Students = new Students {
-                        Email = "Angelina@teamang.com"
+                        Email = "Angelina@teamang.com",
                     }
 
                 },
                 new Persons {
                     First = "Brad",
-                    MiddleI = "K",
+                    MiddleI = "J",
                     Last = "Pitt",
                     Students = new Students {
-                        Email = "brad@teambrad.com"
+                        Email = "brad@teambrad.com",
                     }
                 }
             }
@@ -51,7 +53,7 @@ public class StudentServiceTests
         var studentsDtos = _studentService.GetAllStudents();
 
         // Assert (FluentAssertions)
-        studentsDtos.Single(pdto => pdto.Special).MiddleI.Should().Be("K");
+        studentsDtos.Single(pdto => pdto.Special).MiddleI.Should().Be(expectedPersonName);
     }
 
     [Test]

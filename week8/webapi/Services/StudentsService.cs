@@ -18,9 +18,11 @@ public class StudentsService : IStudentsService
         foreach(var persons in _personsRespository.GetAllPersons())
         {
             studentDtos.Add(new StudentsDto {
-                StudentId = persons.StudentId,
+                First = persons.First,
+                MiddleI = persons.MiddleI,
+                Last = persons.Last,
                 Email = persons.Students.Email,
-                Special = false
+                Special = BusinessRules.Special(persons)
             });
             if (BusinessRules.Special(persons))
             {

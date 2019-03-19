@@ -23,7 +23,6 @@ namespace webapi.Controllers
         }
 
        [HttpGet]
-        [Authorize]
         public ActionResult<List<StudentsDto>> GetAllStudents()
         {
 

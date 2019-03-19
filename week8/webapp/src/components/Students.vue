@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2 class='section-heading'>Persons</h2>
+        <h2 class='section-heading'>Students</h2>
         <table>
             <thead>
                 <tr>
@@ -11,7 +11,7 @@
             <tbody>
                 <tr v-for="student in students" :key="student.id">
                     <td>{{ student.studentId }}</td>
-                    <td>{{ person.email }}</td>
+                    <td>{{ student.email }}</td>
                 </tr>
             </tbody>
         </table>
@@ -31,10 +31,10 @@
         },
 
         methods: {
-            getPersons: function() {
+            getStudents: function() {
                 let studentsApi = process.env.STUDENTS_API;
 
-                Vue.axios.get(students.Api).then(
+                Vue.axios.get(studentsApi).then(
                     (response) => {
                         console.log(response)
                         this.students = response.data;

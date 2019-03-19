@@ -5,7 +5,6 @@
             <thead>
                 <tr>
                     <th>First</th>
-                    <th>Middile I</th>
                     <th>Last</th>
                 </tr>
             </thead>
